@@ -24,14 +24,18 @@ class Command(BaseCommand):
 
         seeder.add_entity(Category, 20, {
             'uuid': lambda x: uuid4(),
-            'name': lambda x: seeder.faker.text(max_nb_chars=50)[:-1],
+            'name': lambda x: seeder.faker.word(),
         })
 
         seeder.add_entity(Task, 100, {
             'uuid': lambda x: uuid4(),
-            'title': lambda x: seeder.faker.text(max_nb_chars=100)[:-1],
+            'title': lambda x: seeder.faker.sentence(nb_words=4).lower()[:-1],
         })
 
-        seeder.execute()
+        try:
+            seeder.execute()
+            self.stdout.write(self.style.SUCCESS(f"Successfully seeded the database"))
+        except Exception as e:
+            raise CommandError(e)
 
-        self.stdout.write(self.style.SUCCESS("Successfully seeded the database"))
+        

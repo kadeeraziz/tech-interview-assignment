@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1>
+
+   title:  {{ task.title }} <br>
+   description: {{ task.description }} <br>
+   due: {{ task.due }} <br>
+   complete:  {{ task.complete }} <br>
+   Edit: <a href="{% url 'todo:task-update' task.uuid %}">Edit</a> <br>
+   Delete: <a href="{% url 'todo:task-delete' task.uuid %}">Delete</a> <br>
+
+</h1>
+
+
+
+{% endblock %}

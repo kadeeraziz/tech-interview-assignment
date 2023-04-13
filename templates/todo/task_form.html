@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% if not view.object %}
+<h1>Create Task</h1>
+{% else %}
+<h1>Update Task</h1>
+{% endif %}
+  
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+  
+{% endblock %}
+
+
+
+

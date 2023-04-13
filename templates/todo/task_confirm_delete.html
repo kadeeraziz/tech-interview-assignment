@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <h1>
+        Are you sure you want to delete this task?
+        <br>
+        title:  {{ task.title }} <br>
+        description: {{ task.description }} <br>
+        due: {{ task.due }} <br>
+        complete:  {{ task.complete }} <br>
+        <br>
+        <form action="{% url 'todo:task-delete' task.uuid %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Delete">
+        </form>
+    </h1>
+
+
+
+{% endblock %}

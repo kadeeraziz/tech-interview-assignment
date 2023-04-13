@@ -1,0 +1,47 @@
+<!-- todo_list/todo_app/templates/todo_app/index.html -->
+
+{% extends "base.html" %}
+{% block content %}
+<!--index.html-->
+{% if object_list %}
+<h3>All my lists</h3>
+{% endif %}
+create a new list: <a href="{% url 'todo:task-create' %}">Create</a>
+<ul>
+    {% for todolist in object_list %}
+    <li>
+        <div>
+            <a href="{% url 'todo:task-detail' todolist.uuid %}">{{ todolist.title }}</a>
+        </div>
+    </li>
+    {% empty %}
+    <h4>You have no lists!</h4>
+    {% endfor %}
+</ul>
+
+{% if is_paginated %}
+  <nav class="pagination">
+    <ul>
+      {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}">previous</a></li>
+      {% else %}
+        <li class="disabled"><span>previous</span></li>
+      {% endif %}
+      {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+          <li class="active"><span>{{ num }}</span></li>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+          <li><a href="?page={{ num }}">{{ num }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}">next</a></li>
+      {% else %}
+        <li class="disabled"><span>next</span></li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}
+
+
+{% endblock %}
