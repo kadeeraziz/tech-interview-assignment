@@ -8,6 +8,7 @@ from .forms import TaskForm
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
 
 
 class BaseView(View):
@@ -59,6 +60,16 @@ class TaskUpdateView(LoginRequiredMixin, BaseView, UpdateView):
 class TaskDeleteView(LoginRequiredMixin, BaseView, DeleteView):
     model = Task
     success_url = reverse_lazy('todo:tasks-list')
+
+
+
+def complete_task(request, pk, *args, **kwargs):
+    task = get_object_or_404(Task, uuid=pk)
+    complete = request.GET.get('complete')
+    task.complete = True if complete == 'True' else False
+    task.save()
+    return redirect('todo:tasks-list')
+
 
 
 class RegisterView(CreateView):
