@@ -26,9 +26,11 @@ create a new list: <a href="{% url 'todo:task-create' %}">Create</a> <br>
     {% for todolist in object_list %}
     <li>
         <div>
-            <a href="{% url 'todo:task-detail' todolist.uuid %}">{{ todolist.title }}</a>
+            <a href="{% url 'todo:task-detail' todolist.uuid %}">{{ todolist.title }}</a> --- 
+            <input type="checkbox" {% if todolist.complete %}checked{% endif %} id="{{ todolist.uuid }}">
         </div>
     </li>
+
     {% empty %}
     <h4>You have no lists!</h4>
     {% endfor %}
@@ -58,5 +60,24 @@ create a new list: <a href="{% url 'todo:task-create' %}">Create</a> <br>
   </nav>
 {% endif %}
 
+<script>
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener('change', function() {
+            var url = '/task/' + this.id + '/complete/';
+            var xhr = new XMLHttpRequest();
+            if (this.checked) {
+                // send an extra parameter of True to the server
+                xhr.open('GET', url + '?complete=True', true);
+                xhr.send();
+
+            } else {
+                // send an extra parameter of False to the server
+                xhr.open('GET', url + '?complete=False', true);
+                xhr.send();
+            }
+        });
+    }
+</script>
 
 {% endblock %}

@@ -5,6 +5,7 @@ from .views import (
     TaskCreateView,
     TaskUpdateView, 
     TaskDeleteView,
+    complete_task
 )
 from django.contrib.auth.decorators import login_required
 
@@ -15,6 +16,8 @@ urlpatterns = [
     path('tasks/create/', TaskCreateView.as_view(), name='task-create'),
     path('task/<slug:pk>/update/', TaskUpdateView.as_view(), name='task-update'),
     path('task/<slug:pk>/delete/', TaskDeleteView.as_view(), name='task-delete'),
+
+    path('task/<slug:pk>/complete/', complete_task, name='task-complete'),
 
 ]
 
