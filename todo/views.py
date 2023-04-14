@@ -1,4 +1,5 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.messages.views import SuccessMessageMixin
 import uuid
 from django.shortcuts import get_object_or_404
 
@@ -11,7 +12,6 @@ from django.urls import reverse_lazy
 from .forms import TaskForm
 
 from django.contrib.auth.views import LoginView, LogoutView
-from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.forms import UserCreationForm
@@ -20,88 +20,66 @@ from django.contrib.auth.forms import UserCreationForm
 
 class TaskListView(ListView):
     model = Task
-    template_name = 'todo/task_list.html'
-    context_object_name = 'tasks'
     ordering = ['-created']
     paginate_by = 10
 
 
 class TaskDetailView(DetailView):
     model = Task
-    template_name = 'todo/task_detail.html'
-    context_object_name = 'task'
 
     def get_object(self, queryset=None):
-        id = uuid.UUID(self.kwargs['pk'])
-        obj = get_object_or_404(Task, uuid=id)
-        return obj
+        return get_object_or_404(Task, uuid=self.kwargs['pk'])
 
 
 
-class TaskCreateView(CreateView):
+class TaskCreateView(SuccessMessageMixin, CreateView):
     model = Task
     form_class = TaskForm
-
+    success_message = "Task created successfully"
 
     def get_success_url(self):
         return reverse_lazy('todo:task-detail', kwargs={'pk': self.object.uuid})
     
 
 
-
+@method_decorator(login_required, name='dispatch')
 class TaskUpdateView(UpdateView):
     model = Task
     form_class = TaskForm
 
     def get_object(self, queryset=None):
-        id = uuid.UUID(self.kwargs['pk'])
-        obj = get_object_or_404(Task, uuid=id)
-        return obj
+        return get_object_or_404(Task, uuid=self.kwargs['pk'])
     
     def get_success_url(self):
         return reverse_lazy('todo:task-detail', kwargs={'pk': self.object.uuid})
-    
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
-    
 
+
+@method_decorator(login_required, name='dispatch')
 class TaskDeleteView(DeleteView):
     model = Task
-    success_url = '/tasks/'
+    success_url = reverse_lazy('todo:tasks-list')
 
     def get_object(self, queryset=None):
-        id = uuid.UUID(self.kwargs['pk'])
-        obj = get_object_or_404(Task, uuid=id)
-        return obj
+        return get_object_or_404(Task, uuid=self.kwargs['pk'])
     
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
-
     
-class LoginView(LoginView):
-    template_name = 'login.html'
+class LoginView(LoginView, SuccessMessageMixin):
+    template_name = 'registration/login.html'
     success_url = reverse_lazy('todo:tasks-list')
-
-    def form_valid(self, form):
-        response = super().form_valid(form)
-        return HttpResponseRedirect(self.get_success_url())
+    success_message = "Logged in successfully"
 
 
-class LogoutView(LogoutView):
-    template_name = 'logout.html'
+
+class LogoutView(SuccessMessageMixin, LogoutView):
+    template_name = 'todo/task_list.html'
     success_url = reverse_lazy('todo:tasks-list')
-
-    def form_valid(self, form):
-        response = super().form_valid(form)
-        return HttpResponseRedirect(self.get_success_url())
+    success_message = "Logged out successfully"
     
 
 class RegisterView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('todo:login')
-    template_name = 'register.html'
+    template_name = 'registration/register.html'
     
 
 

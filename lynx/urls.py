@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
-
+from todo.views import RegisterView
 from django.contrib.auth import views as auth_views
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(('todo.urls', 'todo'), namespace='todo'))
+    path('', include(('todo.urls', 'todo'), namespace='todo')),
+    path('accounts/', include(('django.contrib.auth.urls', 'auth'), namespace='auth')),
+    path('accounts/register/', RegisterView.as_view(), name='register'),
 ]
