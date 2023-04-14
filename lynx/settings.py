@@ -136,4 +136,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'todo:tasks-list'
-LOGIN_URL = 'todo:login'
+LOGIN_URL = 'auth:login'
+LOGOUT_REDIRECT_URL = 'auth:login'
+LOGOUT_URL = 'auth:logout'
+

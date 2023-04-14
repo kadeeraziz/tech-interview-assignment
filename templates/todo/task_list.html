@@ -9,11 +9,18 @@
 create a new list: <a href="{% url 'todo:task-create' %}">Create</a> <br>
 
 {% if user.is_authenticated %}
-    <a href="{% url 'todo:logout' %}">Logout</a>
+    <a href="{% url 'auth:logout' %}">Logout</a>
 {% else %}
-    <a href="{% url 'todo:login' %}">Login</a>
+    <a href="{% url 'auth:login' %}">Login</a>
 {% endif %}
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 <ul>
     {% for todolist in object_list %}

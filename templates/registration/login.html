@@ -2,7 +2,7 @@
 
 {% block content %}
   <h2>Login</h2>
-  Do not have an account? <a href="{% url 'todo:register' %}">Register</a>
+  Do not have an account? <a href="{% url 'register' %}">Register</a>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

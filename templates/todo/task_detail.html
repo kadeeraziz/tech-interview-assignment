@@ -1,13 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <div style="width: 350px; margin-left:500px; " class="alert alert-{{ message.tags }} " id="msg" role="alert">
+      {{ message }}
+   </div>  
+    {% endfor %}
+</ul>
+{% endif %}
 
 <h1>
 
-   title:  {{ task.title }} <br>
-   description: {{ task.description }} <br>
-   due: {{ task.due }} <br>
-   complete:  {{ task.complete }} <br>
+   title:  {{ object.title }} <br>
+   description: {{ object.description }} <br>
+   due: {{ object.due }} <br>
+   complete:  {{ object.complete }} <br>
    Edit: <a href="{% url 'todo:task-update' task.uuid %}">Edit</a> <br>
    Delete: <a href="{% url 'todo:task-delete' task.uuid %}">Delete</a> <br>
 
