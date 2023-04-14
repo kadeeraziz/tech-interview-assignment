@@ -1,13 +1,20 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 import uuid
 from django.shortcuts import get_object_or_404
-from django import forms
+
 
 from django.shortcuts import render
 from django.http import HttpResponse
 
 from .models import Task, Category
 from django.urls import reverse_lazy
+from .forms import TaskForm
+
+from django.contrib.auth.views import LoginView, LogoutView
+from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.contrib.auth.forms import UserCreationForm
 
 
 
@@ -30,27 +37,21 @@ class TaskDetailView(DetailView):
         return obj
 
 
-class TaskCreateForm(forms.ModelForm):
-    class Meta:
-        model = Task
-        fields = ['title', 'description', 'due', 'priority', 'category']
-        widgets = {
-            'due': forms.DateTimeInput(attrs={'type': 'datetime-local'})
-        }
 
 class TaskCreateView(CreateView):
     model = Task
-    form_class = TaskCreateForm
+    form_class = TaskForm
 
 
     def get_success_url(self):
         return reverse_lazy('todo:task-detail', kwargs={'pk': self.object.uuid})
+    
 
 
 
 class TaskUpdateView(UpdateView):
     model = Task
-    form_class = TaskCreateForm
+    form_class = TaskForm
 
     def get_object(self, queryset=None):
         id = uuid.UUID(self.kwargs['pk'])
@@ -59,6 +60,10 @@ class TaskUpdateView(UpdateView):
     
     def get_success_url(self):
         return reverse_lazy('todo:task-detail', kwargs={'pk': self.object.uuid})
+    
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
     
 
 class TaskDeleteView(DeleteView):
@@ -69,11 +74,35 @@ class TaskDeleteView(DeleteView):
         id = uuid.UUID(self.kwargs['pk'])
         obj = get_object_or_404(Task, uuid=id)
         return obj
+    
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     
-# Create your views here.
-def index(request):
-    return render(request, 'index.html')
+class LoginView(LoginView):
+    template_name = 'login.html'
+    success_url = reverse_lazy('todo:tasks-list')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        return HttpResponseRedirect(self.get_success_url())
+
+
+class LogoutView(LogoutView):
+    template_name = 'logout.html'
+    success_url = reverse_lazy('todo:tasks-list')
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        return HttpResponseRedirect(self.get_success_url())
+    
+
+class RegisterView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('todo:login')
+    template_name = 'register.html'
+    
 
 
 

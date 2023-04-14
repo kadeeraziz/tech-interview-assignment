@@ -6,7 +6,15 @@
 {% if object_list %}
 <h3>All my lists</h3>
 {% endif %}
-create a new list: <a href="{% url 'todo:task-create' %}">Create</a>
+create a new list: <a href="{% url 'todo:task-create' %}">Create</a> <br>
+
+{% if user.is_authenticated %}
+    <a href="{% url 'todo:logout' %}">Logout</a>
+{% else %}
+    <a href="{% url 'todo:login' %}">Login</a>
+{% endif %}
+
+
 <ul>
     {% for todolist in object_list %}
     <li>
