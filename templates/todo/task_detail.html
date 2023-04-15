@@ -10,17 +10,18 @@
     {% endfor %}
 </ul>
 {% endif %}
+<h1>Task Detail</h1>
+<a href="{% url 'todo:task-create' %}" class="btn">New task</a> <br>
+<p><strong>Title: </strong> {{ object.title }}</p>
+<p><strong>Description: </strong> {{ object.description }}</p>
+<p><strong>Due: </strong> {{ object.due }}</p>
+<p><strong>Complete: </strong> {{ object.complete }}</p>
+<p><strong>Priority: </strong> {{ object.priority }}</p>
+<p><strong>Created at: </strong> {{ object.created }}</p>
+<p><strong>Updated at: </strong> {{ object.modified }}</p>
+<p><a href="{% url 'todo:task-update' task.uuid %}" class="btn">Edit</a> 
+   <a href="{% url 'todo:task-delete' task.uuid %}" class="btn">Delete</a></p>
 
-<h1>
-
-   title:  {{ object.title }} <br>
-   description: {{ object.description }} <br>
-   due: {{ object.due }} <br>
-   complete:  {{ object.complete }} <br>
-   Edit: <a href="{% url 'todo:task-update' task.uuid %}">Edit</a> <br>
-   Delete: <a href="{% url 'todo:task-delete' task.uuid %}">Delete</a> <br>
-
-</h1>
 
 
 
