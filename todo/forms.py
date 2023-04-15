@@ -7,9 +7,9 @@ from .models import Task
 class TaskForm(ModelForm):
     class Meta:
         model = Task
-        fields = ['title', 'description', 'due', 'priority', 'category']
+        fields = ['title', 'description', 'due_date', 'priority', 'category']
         widgets = {
-            'due': DateTimeInput(attrs={
+            'due_date': DateTimeInput(attrs={
                 'type': 'datetime-local',
                 'min': datetime.now().strftime('%Y-%m-%dT%H:%M')
             })

@@ -20,7 +20,7 @@
 
     {
         "model": "auth.user",
-        "pk": 3,
+        "pk": 2,
         "fields": {
             "password": "pbkdf2_sha256$390000$eLxdEnIldrF8hlkH2AaVbP$QgI30TJTEOXMRk4fee3E1wLr10PLtg7ArdDJhReAHJw=",
             "last_login": "2023-04-15T09:54:06.411Z",
@@ -42,8 +42,8 @@
         "pk": 1,
         "fields": {
             "uuid": "08e66349-c790-4b45-a1df-03450c4cf2d9",
-            "created": "2023-04-14T12:39:30Z",
-            "modified": "2023-04-14T12:39:30Z",
+            "created_at": "2023-04-14T12:39:30Z",
+            "updated_at": "2023-04-14T12:39:30Z",
             "name": "Sport"
         }
     },
@@ -52,8 +52,8 @@
         "pk": 2,
         "fields": {
             "uuid": "c0b794cc-8c98-4215-b7ba-bb8e1c75529e",
-            "created": "2023-04-14T12:39:30Z",
-            "modified": "2000-07-29T10:16:41Z",
+            "created_at": "2023-04-14T12:39:30Z",
+            "updated_at": "2000-07-29T10:16:41Z",
             "name": "Work"
         }
     },
@@ -62,8 +62,8 @@
         "pk": 3,
         "fields": {
             "uuid": "4df4be80-252b-4fbd-9a0b-01ac41d935a4",
-            "created": "2023-04-14T12:39:30Z",
-            "modified": "2023-04-14T12:39:30Z",
+            "created_at": "2023-04-14T12:39:30Z",
+            "updated_at": "2023-04-14T12:39:30Z",
             "name": "Personal"
         }
     },
@@ -73,12 +73,12 @@
         "pk": 1,
         "fields": {
             "uuid": "dfc9086e-f91f-4435-96db-20e3de6f245d",
-            "created": "2001-03-30T08:29:40Z",
-            "modified": "1986-06-22T06:39:17Z",
+            "created_at": "2001-03-30T08:29:40Z",
+            "updated_at": "1986-06-22T06:39:17Z",
             "title": "into history treat",
             "description": "International laugh accept east study recent. Fear wall interest particular feel dark use.\nGuess worry partner wonder. Central door cut while left.",
             "complete": true,
-            "due": "1989-03-29T09:56:56Z",
+            "due_date": "1989-03-29T09:56:56Z",
             "priority": "low",
             "user": 1,
             "category": 1
@@ -89,12 +89,12 @@
         "pk": 2,
         "fields": {
             "uuid": "f1b5b2a1-1b2f-4b0f-8b1f-1b2f4b0f8b1f",
-            "created": "2001-03-30T08:29:40Z",
-            "modified": "1986-06-22T06:39:17Z",
+            "created_at": "2001-03-30T08:29:40Z",
+            "updated_at": "1986-06-22T06:39:17Z",
             "title": "Practice Coding",
             "description": "International laugh accept east study recent. Fear wall interest particular feel dark use.\nGuess worry partner wonder. Central door cut while left.",
             "complete": true,
-            "due": "1989-03-29T09:56:56Z",
+            "due_date": "1989-03-29T09:56:56Z",
             "priority": "high",
             "user": 2,
             "category": 1
@@ -104,13 +104,13 @@
         "model": "todo.task",
         "pk": 3,
         "fields": {
-            "uuid": "f1b5b2a1-1b2f-4b0f-8b1f-1b2f4b0f8b1f",
-            "created": "2001-03-30T08:29:40Z",
-            "modified": "1986-06-22T06:39:17Z",
+            "uuid": "f1b5b2a1-1b2f-4b0f-8b1f-1b2f4b0f8b2f",
+            "created_at": "2001-03-30T08:29:40Z",
+            "updated_at": "1986-06-22T06:39:17Z",
             "title": "Study Math",
             "description": "International laugh accept east study recent. Fear wall interest particular feel dark use.\nGuess worry partner wonder. Central door cut while left.",
             "complete": false,
-            "due": "1989-03-29T09:56:56Z",
+            "due_date": "1989-03-29T09:56:56Z",
             "priority": "low",
             "user": 1,
             "category": 1
@@ -120,13 +120,13 @@
         "model": "todo.task",
         "pk": 4,
         "fields": {
-            "uuid": "f1b5b2a1-1b2f-4b0f-8b1f-1b2f4b0f8b1f",
-            "created": "2001-03-30T08:29:40Z",
-            "modified": "1986-06-22T06:39:17Z",
+            "uuid": "f1b5b2a1-1b2f-4b0f-8b1f-1b2f4b0f8b3f",
+            "created_at": "2001-03-30T08:29:40Z",
+            "updated_at": "1986-06-22T06:39:17Z",
             "title": "Clean the house",
             "description": "International laugh accept east study recent. Fear wall interest particular feel dark use.\nGuess worry partner wonder. Central door cut while left.",
             "complete": false,
-            "due": "1989-03-29T09:56:56Z",
+            "due_date": "1989-03-29T09:56:56Z",
             "priority": "low",
             "user": 2,
             "category": 2
@@ -136,16 +136,192 @@
         "model": "todo.task",
         "pk": 5,
         "fields": {
-            "uuid": "f1b5b2a1-1b2f-4b0f-8b1f-1b2f4b0f8b1f",
-            "created": "2001-03-30T08:29:40Z",
-            "modified": "1986-06-22T06:39:17Z",
+            "uuid": "f1b5b2a1-1b2f-4b0f-8b1f-1b2f4b0f8b4f",
+            "created_at": "2001-03-30T08:29:40Z",
+            "updated_at": "1986-06-22T06:39:17Z",
             "title": "Study Math",
             "description": "International laugh accept east study recent. Fear wall interest particular feel dark use.\nGuess worry partner wonder. Central door cut while left.",
             "complete": false,
-            "due": "1989-03-29T09:56:56Z",
+            "due_date": "1989-03-29T09:56:56Z",
             "priority": "low",
             "user": 1,
             "category": 1
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 6,
+        "fields": {
+            "uuid": "f1b5b221-1b2f-4b0c-8b1f-1b2f4b0f8b4f",
+            "created_at": "2001-03-30T08:29:40Z",
+            "updated_at": "1986-06-22T06:39:17Z",
+            "title": "Go to the gym",
+            "description": "International laugh accept east study recent. Fear wall interest particular feel dark use.\nGuess worry partner wonder. Central door cut while left.",
+            "complete": false,
+            "due_date": "1989-03-29T09:56:56Z",
+            "priority": "high",
+            "user": 2,
+            "category": 1
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 7,
+        "fields": {
+            "uuid": "f1b5b2a1-1b2f-4b0f-8b1f-1b2f4b1f8b4f",
+            "created_at": "2001-03-30T08:29:40Z",
+            "updated_at": "1986-06-22T06:39:17Z",
+            "title": "Cook a meal",
+            "description": "International laugh accept east study recent. Fear wall interest particular feel dark use.\nGuess worry partner wonder. Central door cut while left.",
+            "complete": false,
+            "due_date": "1989-03-29T09:56:56Z",
+            "priority": "high",
+            "user": 2,
+            "category": 2
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 8,
+        "fields": {
+          "uuid": "b6f62f36-d96f-461f-8653-3a38a15db96d",
+          "created_at": "2022-11-25T08:29:40Z",
+          "updated_at": "2022-11-25T08:29:40Z",
+          "title": "Wash the car",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "complete": false,
+          "due_date": "2022-12-01T09:56:56Z",
+          "priority": "high",
+          "user": 2,
+          "category": 2
+        }
+      },
+      {
+        "model": "todo.task",
+        "pk": 9,
+        "fields": {
+          "uuid": "8a6fa283-3c23-4b3c-8c7a-05139eb09c7e",
+          "created_at": "2022-11-26T08:29:40Z",
+          "updated_at": "2022-11-26T08:29:40Z",
+          "title": "Buy groceries",
+          "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "complete": false,
+          "due_date": "2022-12-02T09:56:56Z",
+          "priority": "medium",
+          "user": 2,
+          "category": 2
+        }
+      },
+      {
+        "model": "todo.task",
+        "pk": 10,
+        "fields": {
+          "uuid": "f8492e37-c956-4e58-bf52-fb1c0d54d050",
+          "created_at": "2022-11-27T08:29:40Z",
+          "updated_at": "2022-11-27T08:29:40Z",
+          "title": "Clean the house",
+          "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+          "complete": false,
+          "due_date": "2022-12-03T09:56:56Z",
+          "priority": "low",
+          "user": 2,
+          "category": 2
+        }
+      },
+      {
+        "model": "todo.task",
+        "pk": 11,
+        "fields": {
+          "uuid": "20e1b46f-d6cb-4786-b9a6-3a53fde3c92f",
+          "created_at": "2007-07-31T09:22:14Z",
+          "updated_at": "1992-06-02T18:34:31Z",
+          "title": "Buy groceries",
+          "description": "Size market throughout inside blue region. Model actually despite whether each. North detail anyone can yourself available.\nMean skin control nature century. Source film community machine thought history account.",
+          "complete": false,
+          "due_date": "1992-12-06T08:44:21Z",
+          "priority": "medium",
+          "user": 2,
+          "category": 1
+        }
+      },
+      {
+        "model": "todo.task",
+        "pk": 12,
+        "fields": {
+          "uuid": "a5f4d8e2-4e4a-4abf-badc-8eb510f50e03",
+          "created_at": "2003-08-08T03:55:43Z",
+          "updated_at": "2013-07-16T23:44:13Z",
+          "title": "Exercise",
+          "description": "Theater general add director trip.\nSecurity behavior federal up anything. Soon sense others general indeed matter wind.\nStandard cultural group article society. Though itself card citizen boy.",
+          "complete": false,
+          "due_date": "2006-03-04T18:23:44Z",
+          "priority": "high",
+          "user": 2,
+          "category": 3
+        }
+      },
+      {
+        "model": "todo.task",
+        "pk": 13,
+        "fields": {
+          "uuid": "2eef39d7-8601-4245-a5b5-df0405e7f5d1",
+          "created_at": "1999-05-01T06:57:03Z",
+          "updated_at": "2002-05-12T19:24:56Z",
+          "title": "Read book",
+          "description": "Cost to response travel result claim method high.\nPolice sure moment second Mrs third anything.\nBlue probably deep cell kitchen child. Speech response than green president ball discussion position.\nAny significant weight worry strong speech herself politics.",
+          "complete": false,
+          "due_date": "2006-03-17T16:48:25Z",
+          "priority": "low",
+          "user": 2,
+          "category": 2
+        }
+      },
+      {
+        "model": "todo.task",
+        "pk": 14,
+        "fields": {
+            "uuid": "6341b693-4230-402c-9f2c-5c5e99fc5aa5",
+            "created_at": "2010-06-13T07:21:39Z",
+            "updated_at": "1998-02-28T08:02:14Z",
+            "title": "Learn a new skill",
+            "description": "Growth rest resource around civil view. Six its stop sound too them team.\nTreat change most gun product nearly. Realize manage left reduce.",
+            "complete": false,
+            "due_date": "2012-12-05T02:37:11Z",
+            "priority": "medium",
+            "user": 2,
+            "category": 1
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 15,
+        "fields": {
+            "uuid": "b5c5b5d5-f5f5-5a5a-9c9c-8b8b8b8b8c8c",
+            "created_at": "2005-10-28T11:22:33Z",
+            "updated_at": "1996-07-14T12:33:44Z",
+            "title": "Read a book",
+            "description": "Political bar general individual industry artist remain.\nKey media quite happy notice member. Though fear some shake seat general place career.\nFew front week light read.",
+            "complete": false,
+            "due_date": "2006-08-02T08:15:16Z",
+            "priority": "low",
+            "user": 2,
+            "category": 3
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 16,
+        "fields": {
+            "uuid": "dfc9086e-f91f-4435-96db-20e32e6f245d",
+            "created_at": "2004-11-17T13:14:15Z",
+            "updated_at": "1997-09-01T04:05:06Z",
+            "title": "Do laundry",
+            "description": "Ahead stock as easy continue.\nSport ability he others artist.\nEasy economic because down open plant. Room include fine first own suddenly. Stand agency another capital building area music.",
+            "complete": false,
+            "due_date": "2005-06-19T07:08:09Z",
+            "priority": "high",
+            "user": 2,
+            "category": 2
         }
     }
     

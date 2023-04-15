@@ -25,7 +25,7 @@
             <th>Title</th>
             <th>Completed</th>
             <th>Priority</th>
-            <th>Due Date</th>
+            <th>due_date Date</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -35,7 +35,7 @@
             <td><a href="{% url 'todo:task-detail' task.uuid %}">{{ task.title }}</a></td>
             <td><input type="checkbox" {% if task.complete %}checked{% endif %} id="{{ task.uuid }}"></td>
             <td>{{ task.priority }}</td>
-            <td>{{ task.due }}</td>
+            <td>{{ task.due_date }}</td>
             <td>
                 <a href="{% url 'todo:task-detail' task.uuid %}">Detail</a> |
                 <a href="{% url 'todo:task-update' task.uuid %}">Update</a> |

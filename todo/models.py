@@ -30,10 +30,10 @@ class BaseModel(Model):
         editable=False,
         unique=True,
         db_index=True)
-    created = DateTimeField(
+    created_at = DateTimeField(
         auto_now=True,
         auto_now_add=False)
-    modified = DateTimeField(
+    updated_at = DateTimeField(
         auto_now=True,
         auto_now_add=False)
 
@@ -50,7 +50,7 @@ class Task(BaseModel):
     title = CharField(max_length=200)
     description = TextField(null=True, blank=True)
     complete = BooleanField(default=False)
-    due = DateTimeField(null=True, blank=True)
+    due_date = DateTimeField(null=True, blank=True)
     priority = CharField(
         max_length=10,
         choices=PRIORITY_CHOICES,
