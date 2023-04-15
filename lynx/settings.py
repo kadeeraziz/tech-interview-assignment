@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'PORT': '5432',
         'HOST': 'localhost',
-        'NAME': 'lynxtododb',
+        'NAME': 'lynxdb',
         'PASSWORD': '1234',
         'USER': 'postgres'
     }

@@ -66,6 +66,12 @@
     color: black!important;
     padding: 0.7rem 0.9rem;
     margin: 0.5rem 0;
+    text-decoration: none;
+    
+}
+.btn:hover {
+  text-decoration: none;
+  background-color: #feff18;
 }
 
     </style>
@@ -74,7 +80,7 @@
 
 <body>
     <nav>
-        <a href="/">Home</a>
+        <a href="/">Home</a> | 
         {% if user.is_authenticated %}
             <a href="{% url 'auth:logout' %}">Logout</a>
         {% else %}
@@ -91,6 +97,10 @@
         This content will be replaced by different html code for each page.
         {% endblock %}
     </div>
+
+    <footer>
+       copy right 2023
+    </footer>
 </body>
 
 </html>

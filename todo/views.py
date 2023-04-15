@@ -22,7 +22,7 @@ class TaskDetailView(BaseView, DetailView):
 
 class TaskListView(LoginRequiredMixin, ListView):
     model = Task
-    ordering = ['-created']
+    ordering = ['-due_date']
     paginate_by = 10
 
     def get_queryset(self):
@@ -38,7 +38,7 @@ class TaskListView(LoginRequiredMixin, ListView):
 class TaskCreateView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
     model = Task
     form_class = TaskForm
-    success_message = "Task created successfully"
+    success_message = "Task created_at successfully"
 
     def get_success_url(self):
         return reverse_lazy('todo:task-detail', kwargs={'pk': self.object.uuid})

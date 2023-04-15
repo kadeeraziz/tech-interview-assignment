@@ -26,17 +26,23 @@ PRIORITY_CHOICES = (
 
 class BaseModel(Model):
     uuid = UUIDField(
-        default=uuid4, editable=False,
-        unique=True, db_index=True)
-    created = DateTimeField(auto_now_add=True)
-    modified = DateTimeField(auto_now=True)
+        default=uuid4,
+        editable=False,
+        unique=True,
+        db_index=True)
+    created_at = DateTimeField(
+        auto_now=True,
+        auto_now_add=False)
+    updated_at = DateTimeField(
+        auto_now=True,
+        auto_now_add=False)
 
     class Meta:
         abstract = True
 
 class Category(BaseModel):
     name = CharField(max_length=200)
-
+    
     def __str__(self):
         return self.name
 
@@ -44,10 +50,22 @@ class Task(BaseModel):
     title = CharField(max_length=200)
     description = TextField(null=True, blank=True)
     complete = BooleanField(default=False)
-    due = DateTimeField(null=True, blank=True)
-    priority = CharField(max_length=10, choices=PRIORITY_CHOICES, default='low')
-    user = ForeignKey(get_user_model(), on_delete=CASCADE, default=None, related_name='tasks', null=True)
-    category = ForeignKey(Category, on_delete=CASCADE, default=None, related_name='tasks', null=True, blank=True)
+    due_date = DateTimeField(null=True, blank=True)
+    priority = CharField(
+        max_length=10,
+        choices=PRIORITY_CHOICES,
+        default='low')
+    user = ForeignKey(
+        get_user_model(),
+        on_delete=CASCADE,
+        default=None,
+        related_name='tasks', null=True)
+    category = ForeignKey(
+        Category,
+        on_delete=CASCADE,
+        default=None,
+        related_name='tasks',
+        null=True, blank=True)
 
     def __str__(self):
         return self.title

@@ -14,11 +14,11 @@
 <a href="{% url 'todo:task-create' %}" class="btn">New task</a> <br>
 <p><strong>Title: </strong> {{ object.title }}</p>
 <p><strong>Description: </strong> {{ object.description }}</p>
-<p><strong>Due: </strong> {{ object.due }}</p>
+<p><strong>due_date: </strong> {{ object.due_date }}</p>
 <p><strong>Complete: </strong> {{ object.complete }}</p>
 <p><strong>Priority: </strong> {{ object.priority }}</p>
-<p><strong>Created at: </strong> {{ object.created }}</p>
-<p><strong>Updated at: </strong> {{ object.modified }}</p>
+<p><strong>created_at at: </strong> {{ object.created_at }}</p>
+<p><strong>Updated at: </strong> {{ object.updated_at }}</p>
 <p><a href="{% url 'todo:task-update' task.uuid %}" class="btn">Edit</a> 
    <a href="{% url 'todo:task-delete' task.uuid %}" class="btn">Delete</a></p>
 
