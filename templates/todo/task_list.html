@@ -6,13 +6,9 @@
 {% if object_list %}
 <h3>All my lists</h3>
 {% endif %}
-create a new list: <a href="{% url 'todo:task-create' %}">Create</a> <br>
 
-{% if user.is_authenticated %}
-    <a href="{% url 'auth:logout' %}">Logout</a>
-{% else %}
-    <a href="{% url 'auth:login' %}">Login</a>
-{% endif %}
+
+
 
 {% if messages %}
 <ul class="messages">
@@ -22,19 +18,40 @@ create a new list: <a href="{% url 'todo:task-create' %}">Create</a> <br>
 </ul>
 {% endif %}
 
-<ul>
-    {% for todolist in object_list %}
-    <li>
-        <div>
-            <a href="{% url 'todo:task-detail' todolist.uuid %}">{{ todolist.title }}</a> --- 
-            <input type="checkbox" {% if todolist.complete %}checked{% endif %} id="{{ todolist.uuid }}">
-        </div>
-    </li>
+<a href="{% url 'todo:task-create' %}" class="btn">New task</a> <br>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Completed</th>
+            <th>Priority</th>
+            <th>Due Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in object_list %}
+        <tr>
+            <td><a href="{% url 'todo:task-detail' task.uuid %}">{{ task.title }}</a></td>
+            <td><input type="checkbox" {% if task.complete %}checked{% endif %} id="{{ task.uuid }}"></td>
+            <td>{{ task.priority }}</td>
+            <td>{{ task.due }}</td>
+            <td>
+                <a href="{% url 'todo:task-detail' task.uuid %}">Detail</a> |
+                <a href="{% url 'todo:task-update' task.uuid %}">Update</a> |
+                <a href="{% url 'todo:task-delete' task.uuid %}">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">You have no lists!</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
-    {% empty %}
-    <h4>You have no lists!</h4>
-    {% endfor %}
-</ul>
+
+
 
 {% if is_paginated %}
   <nav class="pagination">

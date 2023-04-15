@@ -9,12 +9,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Simple.css-->
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    <title>Django To-do Lists</title>
+    <title>Lynx To-do Lists</title>
+    
+    <style>
+            .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination a,
+.pagination span {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.pagination .active span {
+  background-color: #333;
+  color: #fff;
+  cursor: default;
+}
+
+.pagination .disabled span {
+  color: #999;
+  cursor: default;
+}
+
+.btn {
+    border: none;
+    border-radius: var(--standard-border-radius);
+    background-color: #ffb300;
+    font-size: 1rem;
+    color: black!important;
+    padding: 0.7rem 0.9rem;
+    margin: 0.5rem 0;
+}
+
+    </style>
+
 </head>
 
 <body>
-    <div>
-    </div>
+    <nav>
+        <a href="/">Home</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'auth:logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'auth:login' %}">Login</a>
+        {% endif %}
+        
+        {% if user.is_authenticated  %}
+           <p>You are log in as:  <strong>{{ user }}</strong></p>
+        {% endif %}
+
+      </nav>
     <div>
         {% block content %}
         This content will be replaced by different html code for each page.

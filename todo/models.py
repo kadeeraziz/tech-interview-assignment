@@ -47,7 +47,7 @@ class Task(BaseModel):
     due = DateTimeField(null=True, blank=True)
     priority = CharField(max_length=10, choices=PRIORITY_CHOICES, default='low')
     user = ForeignKey(get_user_model(), on_delete=CASCADE, default=None, related_name='tasks', null=True)
-    category = ForeignKey(Category, on_delete=CASCADE, default=None)
+    category = ForeignKey(Category, on_delete=CASCADE, default=None, related_name='tasks', null=True, blank=True)
 
     def __str__(self):
         return self.title
