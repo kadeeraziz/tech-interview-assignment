@@ -1,0 +1,152 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$390000$eLxdEnIldrF8hlkH2AaVbP$QgI30TJTEOXMRk4fee3E1wLr10PLtg7ArdDJhReAHJw=",
+            "last_login": "2023-04-14T22:40:12.631Z",
+            "is_superuser": true,
+            "username": "kadeeraziz",
+            "first_name": "",
+            "last_name": "",
+            "email": "kadeeraziz@yahoo.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2023-04-13T16:24:35.555Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$390000$eLxdEnIldrF8hlkH2AaVbP$QgI30TJTEOXMRk4fee3E1wLr10PLtg7ArdDJhReAHJw=",
+            "last_login": "2023-04-15T09:54:06.411Z",
+            "is_superuser": false,
+            "username": "testuser",
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2023-04-14T15:59:46.704Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+
+    {
+        "model": "todo.category",
+        "pk": 1,
+        "fields": {
+            "uuid": "08e66349-c790-4b45-a1df-03450c4cf2d9",
+            "created": "2023-04-14T12:39:30Z",
+            "modified": "2023-04-14T12:39:30Z",
+            "name": "Sport"
+        }
+    },
+    {
+        "model": "todo.category",
+        "pk": 2,
+        "fields": {
+            "uuid": "c0b794cc-8c98-4215-b7ba-bb8e1c75529e",
+            "created": "2023-04-14T12:39:30Z",
+            "modified": "2000-07-29T10:16:41Z",
+            "name": "Work"
+        }
+    },
+    {
+        "model": "todo.category",
+        "pk": 3,
+        "fields": {
+            "uuid": "4df4be80-252b-4fbd-9a0b-01ac41d935a4",
+            "created": "2023-04-14T12:39:30Z",
+            "modified": "2023-04-14T12:39:30Z",
+            "name": "Personal"
+        }
+    },
+
+    {
+        "model": "todo.task",
+        "pk": 1,
+        "fields": {
+            "uuid": "dfc9086e-f91f-4435-96db-20e3de6f245d",
+            "created": "2001-03-30T08:29:40Z",
+            "modified": "1986-06-22T06:39:17Z",
+            "title": "into history treat",
+            "description": "International laugh accept east study recent. Fear wall interest particular feel dark use.\nGuess worry partner wonder. Central door cut while left.",
+            "complete": true,
+            "due": "1989-03-29T09:56:56Z",
+            "priority": "low",
+            "user": 1,
+            "category": 1
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 2,
+        "fields": {
+            "uuid": "f1b5b2a1-1b2f-4b0f-8b1f-1b2f4b0f8b1f",
+            "created": "2001-03-30T08:29:40Z",
+            "modified": "1986-06-22T06:39:17Z",
+            "title": "Practice Coding",
+            "description": "International laugh accept east study recent. Fear wall interest particular feel dark use.\nGuess worry partner wonder. Central door cut while left.",
+            "complete": true,
+            "due": "1989-03-29T09:56:56Z",
+            "priority": "high",
+            "user": 2,
+            "category": 1
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 3,
+        "fields": {
+            "uuid": "f1b5b2a1-1b2f-4b0f-8b1f-1b2f4b0f8b1f",
+            "created": "2001-03-30T08:29:40Z",
+            "modified": "1986-06-22T06:39:17Z",
+            "title": "Study Math",
+            "description": "International laugh accept east study recent. Fear wall interest particular feel dark use.\nGuess worry partner wonder. Central door cut while left.",
+            "complete": false,
+            "due": "1989-03-29T09:56:56Z",
+            "priority": "low",
+            "user": 1,
+            "category": 1
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 4,
+        "fields": {
+            "uuid": "f1b5b2a1-1b2f-4b0f-8b1f-1b2f4b0f8b1f",
+            "created": "2001-03-30T08:29:40Z",
+            "modified": "1986-06-22T06:39:17Z",
+            "title": "Clean the house",
+            "description": "International laugh accept east study recent. Fear wall interest particular feel dark use.\nGuess worry partner wonder. Central door cut while left.",
+            "complete": false,
+            "due": "1989-03-29T09:56:56Z",
+            "priority": "low",
+            "user": 2,
+            "category": 2
+        }
+    },
+    {
+        "model": "todo.task",
+        "pk": 5,
+        "fields": {
+            "uuid": "f1b5b2a1-1b2f-4b0f-8b1f-1b2f4b0f8b1f",
+            "created": "2001-03-30T08:29:40Z",
+            "modified": "1986-06-22T06:39:17Z",
+            "title": "Study Math",
+            "description": "International laugh accept east study recent. Fear wall interest particular feel dark use.\nGuess worry partner wonder. Central door cut while left.",
+            "complete": false,
+            "due": "1989-03-29T09:56:56Z",
+            "priority": "low",
+            "user": 1,
+            "category": 1
+        }
+    }
+    
+]

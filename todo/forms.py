@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.forms import ModelForm, DateTimeInput
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -8,10 +9,11 @@ class TaskForm(ModelForm):
         model = Task
         fields = ['title', 'description', 'due', 'priority', 'category']
         widgets = {
-            'due': DateTimeInput(attrs={'type': 'datetime-local'})
+            'due': DateTimeInput(attrs={
+                'type': 'datetime-local',
+                'min': datetime.now().strftime('%Y-%m-%dT%H:%M')
+            })
         }
-
-
 
 
 class CustomUserCreationForm(UserCreationForm):
