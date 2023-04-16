@@ -144,3 +144,5 @@ api.http
 *.sqlite3
 .ipynb_checkpoints/
 
+/postgres_data
+
