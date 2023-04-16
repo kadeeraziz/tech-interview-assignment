@@ -80,19 +80,31 @@ WSGI_APPLICATION = 'lynx.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'PORT': '5432',
-        'HOST': 'db',
-        'NAME': 'postgres',
-        'PASSWORD': 'postgres',
-        'USER': 'postgres'
+if os.environ.get('DB_HOST') is not None:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'PORT': '5432',
+            'HOST': os.environ.get('DB_HOST'),
+            'NAME': os.environ.get('DB_NAME'),
+            'PASSWORD': os.environ.get('DB_PASSWORD'),
+            'USER': os.environ.get('DB_USER')
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            # 'ENGINE': 'django.db.backends.sqlite3',
+            # 'NAME': BASE_DIR / 'db.sqlite3',
+
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'PORT': '5432',
+            'HOST': 'db',
+            'NAME': 'postgres',
+            'PASSWORD': 'postgres',
+            'USER': 'postgres'
+        }
+    }
 
 
 print(

@@ -1,3 +1,2 @@
 Django==4.1
 psycopg2-binary==2.9.6
-django-seed==0.3.1
