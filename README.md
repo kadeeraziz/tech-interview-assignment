@@ -31,6 +31,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+By default, the project is configured to use a PostgreSQL database through Docker Compose. If you wish to use SQLite instead, please uncomment the relevant configuration in `settings.py` and comment out the PostgreSQL configuration. Alternatively, if you prefer to use a locally installed PostgreSQL database, please add your database configuration details.
+
 - Make migrations for todo app
 
 ```
