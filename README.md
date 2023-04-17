@@ -61,7 +61,14 @@ python manage.py loaddata fixtures.json
 
 
 ```
-python manage.py runserver 
+python manage.py runserver 0.0.0.0:8000
+```
+
+
+- Now you can access the app in the browser with link:
+
+```
+0.0.0.0:8000
 ```
 
 
