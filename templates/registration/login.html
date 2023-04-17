@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Login</h2>
-  Do not have an account? <a href="{% url 'register' %}">Register</a>
+
+{% if user.is_authenticated %}
+<p>You are already logged in.</p>
+<a href="{% url 'todo:tasks-list' %}">Go to Home</a>
+{% else %}
+<h2>Login</h2>
+  Do you not have an account? <a href="{% url 'register' %}">Register</a>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Login</button>
   </form>
+{% endif %}
+
 {% endblock %}

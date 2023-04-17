@@ -3,6 +3,7 @@
 
 {% block content %}
   <h2>Register</h2>
+  Do you have an account? <a href="{% url 'auth:login' %}">Login</a>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

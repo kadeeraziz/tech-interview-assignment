@@ -73,4 +73,4 @@ class Task(BaseModel):
     class Meta:
         ordering = ['complete'] 
         indexes = [Index(fields=['title'])]
-
+        
