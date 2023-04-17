@@ -1,5 +1,3 @@
-from typing import Any
-
 from django.views.generic import (
     View, ListView,
     DetailView, CreateView,
@@ -229,7 +227,7 @@ class RegisterView(CreateView):
         return super().dispatch(request, *args, **kwargs)
     
 
-def complete_task(request: HttpRequest, pk: str, *args: Any, **kwargs: Any) -> HttpResponse:
+def complete_task(request: HttpRequest, pk: str) -> HttpResponse:
     """
     This function is used to complete or uncomplete a Task object by updating the 'complete' attribute of the Task.
     
