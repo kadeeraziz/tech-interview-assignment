@@ -1,16 +1,18 @@
-from django.views.generic import View, ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import get_object_or_404
-from django.http import HttpResponse, HttpRequest
 from typing import Any
 
-from .models import Task
-from django.urls import reverse_lazy
-from .forms import TaskForm, CustomUserCreationForm
-
+from django.views.generic import (
+    View, ListView,
+    DetailView, CreateView,
+    UpdateView, DeleteView)
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect, render
+from django.http import HttpResponse, HttpRequest
+from django.urls import reverse_lazy
+from django.shortcuts import redirect, render, get_object_or_404
 from django.http import Http404
+
+from .models import Task
+from .forms import TaskForm, CustomUserCreationForm
 
 
 class BaseView(View):
@@ -56,8 +58,7 @@ class BaseView(View):
             return super().dispatch(request, *args, **kwargs)
         except Http404:
             return render(request, 'todo/404.html', {'message': 'Page not found'}, status=404)
-    
-    
+        
 
 class TaskDetailView(BaseView, DetailView):
     """
@@ -191,7 +192,6 @@ class TaskDeleteView(LoginRequiredMixin, BaseView, DeleteView):
     model = Task
     success_message = "Task deleted successfully"
     success_url = reverse_lazy('todo:tasks-list')
-
 
 
 class RegisterView(CreateView):
