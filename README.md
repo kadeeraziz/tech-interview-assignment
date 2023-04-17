@@ -1,5 +1,11 @@
-# interview Preparation
-This GitHub repository contains code snippet and resources that I have been working on to prepare for my upcoming technical interview.
+# Technical Assignment
+This GitHub repository contains the code, I wrote to complete the technical assigment as part of the interview process.
+
+A simple todo app built in Django that allows users to manage their daily tasks. The app provides an interface that allows users to create new tasks, edit or delete existing ones, and mark completed tasks as done.
+
+Upon logging in, the user is presented with a dashboard that displays a list of all their tasks, along with relevant information such as the task description, due date, and status. To create a new task, users can simply enter a description and set a due date, and the app will automatically store the task information in a database. Users can also edit or delete tasks at any time, as well as mark tasks as completed once they are done.
+
+The following are the instructions on how to run the project locally or in the docker. 
 
 
 ### Local Installation
