@@ -32,6 +32,23 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+- Make migrations for todo app
+
+```
+python manage.py makemigrations todo
+```
+
+- Run migrations
+
+```
+python manage.py migrate
+```
+
+- Import Initial Data
+
+```
+python manage.py loaddata fixtures.json
+```
 
 - Run the the server
 
@@ -44,15 +61,12 @@ python manage.py runserver
 ### Alternatively you can run in docker
 
 
-- Build the docker image
+### Run in docker
 
-```
-docker build -t dockercontainer .
-```
+`docker-compose build`
 
+`docker-compose up`
 
-- Run the Container
-
-```
-docker run dockercontainer
-```
+To run the migrations and load fixtures.json 
+`docker-compose run web python manage.py migrate`
+`docker-compose run web python manage.py loaddata fixtures.json`
