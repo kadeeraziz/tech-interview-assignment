@@ -1,6 +1,5 @@
 # interview Preparation
-This GitHub repository contains code snippet and resources that I have been working on to prepare for my upcoming interview.
-
+This GitHub repository contains code snippet and resources that I have been working on to prepare for my upcoming technical interview.
 
 
 ### Local Installation
@@ -58,7 +57,7 @@ python manage.py runserver
 ```
 
 
-### Alternatively you can run in docker
+# Alternatively you can run the app in the Docker
 
 
 ### Run in docker
