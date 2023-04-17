@@ -62,11 +62,25 @@ python manage.py runserver
 
 
 ### Run in docker
+- Build docker images
+```
+docker-compose build
+````
 
-`docker-compose build`
+- Start and run the containers
 
-`docker-compose up`
+```
+docker-compose up
+```
 
-To run the migrations and load fixtures.json 
-`docker-compose run web python manage.py migrate`
-`docker-compose run web python manage.py loaddata fixtures.json`
+- Run the migrations
+
+```
+docker-compose run web python manage.py migrate
+```
+
+- Load intial data
+
+```
+docker-compose run web python manage.py loaddata fixtures.json
+```
