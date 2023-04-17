@@ -1,5 +1,5 @@
 # Technical Assignment
-This GitHub repository contains the code, I wrote to complete the technical assigment as part of the interview process.
+This GitHub repository contains the code, I wrote to complete the technical assignment as part of the interview process.
 
 A todo app built in Django that allows users to manage their daily tasks. The app provides an interface that allows users to create new tasks, edit or delete existing ones, and mark completed tasks as done.
 
@@ -65,7 +65,7 @@ python manage.py runserver 0.0.0.0:8000
 ```
 
 
-- Now you can access the app in the browser with link:
+- Access the app in the browser with link:
 
 ```
 0.0.0.0:8000
@@ -97,4 +97,10 @@ docker-compose run web python manage.py migrate
 
 ```
 docker-compose run web python manage.py loaddata fixtures.json
+```
+
+- Access the app in the browser with link:
+
+```
+0.0.0.0:8000
 ```
